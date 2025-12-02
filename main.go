@@ -9,7 +9,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	t := time.Now()
-	fmt.Fprintf(w, "Hi there, it is %d:%d", t.Hour(), getMinute(t.Minute(), t.Second()))
+	fmt.Fprintf(w, "Hi, it is %d:%d", t.Hour(), getMinute(t.Minute(), t.Second()))
 
 	Fibonacci(1000)
 }
@@ -22,4 +22,5 @@ func main() {
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(":8888", nil))
 }
+
 
